@@ -1,15 +1,33 @@
 PODS:
   - Firebase/CoreOnly (11.0.0):
     - FirebaseCore (= 11.0.0)
-  - firebase_core (3.4.0):
+  - Firebase/Storage (11.0.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 11.0.0)
+  - firebase_core (3.4.1):
     - Firebase/CoreOnly (= 11.0.0)
     - Flutter
+  - firebase_storage (12.3.0):
+    - Firebase/Storage (= 11.0.0)
+    - firebase_core
+    - Flutter
+  - FirebaseAppCheckInterop (11.1.0)
+  - FirebaseAuthInterop (11.2.0)
   - FirebaseCore (11.0.0):
     - FirebaseCoreInternal (~> 11.0)
     - GoogleUtilities/Environment (~> 8.0)
     - GoogleUtilities/Logger (~> 8.0)
+  - FirebaseCoreExtension (11.1.0):
+    - FirebaseCore (~> 11.0)
   - FirebaseCoreInternal (11.1.0):
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
+  - FirebaseStorage (11.0.0):
+    - FirebaseAppCheckInterop (~> 11.0)
+    - FirebaseAuthInterop (~> 11.0)
+    - FirebaseCore (~> 11.0)
+    - FirebaseCoreExtension (~> 11.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GTMSessionFetcher/Core (~> 3.4)
   - Flutter (1.0.0)
   - GoogleUtilities/Environment (8.0.2):
     - GoogleUtilities/Privacy
@@ -19,24 +37,33 @@ PODS:
   - "GoogleUtilities/NSData+zlib (8.0.2)":
     - GoogleUtilities/Privacy
   - GoogleUtilities/Privacy (8.0.2)
+  - GTMSessionFetcher/Core (3.5.0)
   - image_picker_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
 
 SPEC REPOS:
   trunk:
     - Firebase
+    - FirebaseAppCheckInterop
+    - FirebaseAuthInterop
     - FirebaseCore
+    - FirebaseCoreExtension
     - FirebaseCoreInternal
+    - FirebaseStorage
     - GoogleUtilities
+    - GTMSessionFetcher
 
 EXTERNAL SOURCES:
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_storage:
+    :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
     :path: Flutter
   image_picker_ios:
@@ -44,11 +71,17 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 9f574c08c2396885b5e7e100ed4293d956218af9
-  firebase_core: ceec591a66629daaee82d3321551692c4a871493
+  firebase_core: ba84e940cf5cbbc601095f86556560937419195c
+  firebase_storage: f333c5a5bd7c4d01fb5a3fdf96493262e4cb779f
+  FirebaseAppCheckInterop: e59b52f2c0e188e6ba77b9e3f6acead2117f2abf
+  FirebaseAuthInterop: 47c09558af5d1b31f16fb352387c72d4804f4a24
   FirebaseCore: 3cf438f431f18c12cdf2aaf64434648b63f7e383
+  FirebaseCoreExtension: aa5c9779c2d0d39d83f1ceb3fdbafe80c4feecfa
   FirebaseCoreInternal: adefedc9a88dbe393c4884640a73ec9e8e790f8c
+  FirebaseStorage: f9e2bf027d549db18b6195a37b31c85f56e40200
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
+  GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
 
 PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
