@@ -7,6 +7,7 @@ import '../../../../core/repos/images_repo/images_repo.dart';
 import '../../../../core/repos/product_repo/products_repo.dart';
 import '../../../../core/services/get_it_service.dart';
 import '../../../../core/widgets/build_app_bar.dart';
+import 'widgets/add_product_view_body_bloc_builder.dart';
 
 class AddProductView extends StatelessWidget {
   const AddProductView({super.key});
@@ -23,7 +24,7 @@ class AddProductView extends StatelessWidget {
           getIt.get<ImagesRepo>(),
           getIt.get<ProductsRepo>(),
         ),
-        child: const AddProductViewBody(),
+        child: const AddProductsViewBodyBlocBuilder(),
       ),
     );
   }

@@ -32,14 +32,12 @@ class AddProductInputModel {
         imageUrl: addProductInputEntity.imageUrl);
   }
 
-
   toJson() {
     return {
       'name': name,
       'code': code,
       'description': description,
       'price': price,
-      'image': image.path,
       'isFeatured': isFeatured,
       'imageUrl': imageUrl
     };

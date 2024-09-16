@@ -16,6 +16,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   get_it: ^7.7.0
   image_picker: ^1.1.2
+  modal_progress_hud_nsn: ^0.5.1
   path: ^1.9.0
   skeletonizer: ^1.4.2
 
