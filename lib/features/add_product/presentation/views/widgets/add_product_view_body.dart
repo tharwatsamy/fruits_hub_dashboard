@@ -97,16 +97,16 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   if (image != null) {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      AddProductInputEntity input = AddProductInputEntity(
-                        name: name,
-                        code: code,
-                        description: description,
-                        price: price,
-                        image: image!,
-                        isFeatured: isFeatured,
-                      );
+                      // AddProductInputEntity input = AddProductInputEntity(
+                      //   name: name,
+                      //   code: code,
+                      //   description: description,
+                      //   price: price,
+                      //   image: image!,
+                      //   isFeatured: isFeatured,
+                      // );
 
-                      context.read<AddProductCubit>().addProduct(input);
+                      // context.read<AddProductCubit>().addProduct(input);
                     } else {
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});
