@@ -9,7 +9,7 @@ class AddProductInputEntity {
   final bool isFeatured;
   String? imageUrl;
   final int expirationsMonths;
-  final bool isOrganic = false;
+  final bool isOrganic;
   final int numberOfCalories;
   final num avgRating = 0;
   final num ratingCount = 0;
@@ -23,6 +23,7 @@ class AddProductInputEntity {
       required this.expirationsMonths,
       required this.numberOfCalories,
       required this.unitAmount,
+      this.isOrganic = false,
       required this.image,
       required this.isFeatured,
       this.imageUrl});

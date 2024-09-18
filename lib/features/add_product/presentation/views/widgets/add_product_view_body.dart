@@ -9,6 +9,7 @@ import 'package:fruit_hub_dashboard/features/add_product/presentation/manger/cub
 import 'package:fruit_hub_dashboard/features/add_product/presentation/views/widgets/custom_check_box.dart';
 import 'package:fruit_hub_dashboard/features/add_product/presentation/views/widgets/image_field.dart';
 import 'package:fruit_hub_dashboard/features/add_product/presentation/views/widgets/is_featured_check_box.dart';
+import 'package:fruit_hub_dashboard/features/add_product/presentation/views/widgets/is_organic_check_box.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -22,9 +23,10 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   late String name, code, description;
-  late num price;
+  late num price, expirationMonths, numberOfCalories, unitAmount;
   File? image;
   bool isFeatured = false;
+  bool isOrganic = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -57,6 +59,36 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               CustomTextFormField(
                 onSaved: (value) {
+                  expirationMonths = num.parse(value!);
+                },
+                hintText: 'Expiration Months',
+                textInputType: TextInputType.number,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              CustomTextFormField(
+                onSaved: (value) {
+                  numberOfCalories = num.parse(value!);
+                },
+                hintText: 'Number Of Calories',
+                textInputType: TextInputType.number,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              CustomTextFormField(
+                onSaved: (value) {
+                  unitAmount = num.parse(value!);
+                },
+                hintText: 'Unit Amont',
+                textInputType: TextInputType.number,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              CustomTextFormField(
+                onSaved: (value) {
                   code = value!.toLowerCase();
                 },
                 hintText: 'Product Code',
@@ -72,6 +104,14 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Product Description',
                 textInputType: TextInputType.text,
                 maxLines: 5,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              IsOrganciCheckBox(
+                onChanged: (value) {
+                  isOrganic = value;
+                },
               ),
               const SizedBox(
                 height: 16,
@@ -97,16 +137,20 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   if (image != null) {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      // AddProductInputEntity input = AddProductInputEntity(
-                      //   name: name,
-                      //   code: code,
-                      //   description: description,
-                      //   price: price,
-                      //   image: image!,
-                      //   isFeatured: isFeatured,
-                      // );
+                      AddProductInputEntity input = AddProductInputEntity(
+                        name: name,
+                        isOrganic: isOrganic,
+                        code: code,
+                        description: description,
+                        expirationsMonths: expirationMonths.toInt(),
+                        numberOfCalories: numberOfCalories.toInt(),
+                        unitAmount: unitAmount.toInt(),
+                        price: price,
+                        image: image!,
+                        isFeatured: isFeatured,
+                      );
 
-                      // context.read<AddProductCubit>().addProduct(input);
+                      context.read<AddProductCubit>().addProduct(input);
                     } else {
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});

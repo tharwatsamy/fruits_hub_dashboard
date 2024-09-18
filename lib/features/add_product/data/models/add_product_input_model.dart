@@ -11,7 +11,7 @@ class AddProductInputModel {
   final bool isFeatured;
   String? imageUrl;
   final int expirationsMonths;
-  final bool isOrganic = false;
+  final bool isOrganic;
   final int numberOfCalories;
   final num avgRating = 0;
   final num ratingCount = 0;
@@ -25,6 +25,7 @@ class AddProductInputModel {
       required this.numberOfCalories,
       required this.unitAmount,
       required this.price,
+      required this.isOrganic,
       required this.image,
       required this.isFeatured,
       this.imageUrl});
@@ -36,6 +37,7 @@ class AddProductInputModel {
         code: addProductInputEntity.code,
         description: addProductInputEntity.description,
         price: addProductInputEntity.price,
+        isOrganic: addProductInputEntity.isOrganic,
         image: addProductInputEntity.image,
         expirationsMonths: addProductInputEntity.expirationsMonths,
         numberOfCalories: addProductInputEntity.numberOfCalories,
