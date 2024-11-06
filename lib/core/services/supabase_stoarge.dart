@@ -7,6 +7,23 @@ import 'package:path/path.dart' as b;
 
 class SupabaseStoargeService implements StoarageService {
   static late Supabase _supabase;
+
+  static createBuckets(String bucketName) async {
+    var buckets = await _supabase.client.storage.listBuckets();
+
+    bool isBucketExits = false;
+
+    for (var buckte in buckets) {
+      if (buckte.id == bucketName) {
+        isBucketExits = true;
+        break;
+      }
+    }
+    if (!isBucketExits) {
+      await _supabase.client.storage.createBucket(bucketName);
+    }
+  }
+
   static initSupabase() async {
     _supabase = await Supabase.initialize(
       url: kSupabaseUrl,
