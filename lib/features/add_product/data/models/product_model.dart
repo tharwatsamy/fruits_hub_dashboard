@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import '../../domain/entities/add_product_input_entity.dart';
+import '../../domain/entities/product_entity.dart';
 import 'review_model.dart';
 
-class AddProductInputModel {
+class ProductModel {
   final String name;
   final String code;
   final String description;
@@ -17,8 +17,9 @@ class AddProductInputModel {
   final num avgRating = 0;
   final num ratingCount = 0;
   final int unitAmount;
+  final int sellingCount;
   final List<ReviewModel> reviews;
-  AddProductInputModel(
+  ProductModel(
       {required this.name,
       required this.code,
       required this.description,
@@ -27,14 +28,14 @@ class AddProductInputModel {
       required this.unitAmount,
       required this.reviews,
       required this.price,
+      this.sellingCount = 0,
       required this.isOrganic,
       required this.image,
       required this.isFeatured,
       this.imageUrl});
 
-  factory AddProductInputModel.fromEntity(
-      AddProductInputEntity addProductInputEntity) {
-    return AddProductInputModel(
+  factory ProductModel.fromEntity(ProductEntity addProductInputEntity) {
+    return ProductModel(
         reviews: addProductInputEntity.reviews
             .map((e) => ReviewModel.fromEntity(e))
             .toList(),
@@ -55,6 +56,7 @@ class AddProductInputModel {
     return {
       'name': name,
       'code': code,
+      'sellingCount': sellingCount,
       'description': description,
       'price': price,
       'isFeatured': isFeatured,
