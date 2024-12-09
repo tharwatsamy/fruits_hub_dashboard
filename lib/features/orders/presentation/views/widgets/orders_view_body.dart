@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fruit_hub_dashboard/features/orders/presentation/views/widgets/order_item.dart';
+import 'package:fruit_hub_dashboard/features/orders/presentation/views/widgets/orders_items_list_view.dart';
 
 import '../../../../../core/helper_functions/get_order_dummy_data.dart';
 import 'filter_section.dart';
@@ -24,7 +25,13 @@ class OrdersViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          OrderItemWidget(orderModel: getDummyOrder()),
+          Expanded(
+              child: OrdersItemsListView(orderModels: [
+            getDummyOrder(),
+            getDummyOrder(),
+            getDummyOrder(),
+            getDummyOrder(),
+          ])),
         ],
       ),
     );
