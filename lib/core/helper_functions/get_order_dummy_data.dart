@@ -1,10 +1,14 @@
+import 'package:fruit_hub_dashboard/features/orders/domain/entities/data/models/order_entity.dart';
+import 'package:fruit_hub_dashboard/features/orders/domain/entities/data/models/order_product_entity.dart';
+import 'package:fruit_hub_dashboard/features/orders/domain/entities/data/models/shipping_address_entity.dart';
+
 import '../../features/orders/data/models/order_model.dart';
 import '../../features/orders/data/models/order_product_model.dart';
 import '../../features/orders/data/models/shipping_address_model.dart';
 
-OrderModel getDummyOrder() {
+OrderEntity getDummyOrder() {
   // Create a sample shipping address
-  ShippingAddressModel shippingAddress = ShippingAddressModel(
+  ShippingAddressEntity shippingAddress = ShippingAddressEntity(
     name: 'John Doe',
     phone: '123-456-7890',
     address: '123 Main St',
@@ -14,22 +18,22 @@ OrderModel getDummyOrder() {
   );
 
   // Create a sample list of order products
-  List<OrderProductModel> orderProducts = [
-    OrderProductModel(
+  List<OrderProductEntity> orderProducts = [
+    OrderProductEntity(
       name: 'Product A',
       code: 'A123',
       imageUrl: 'https://via.placeholder.com/150',
       price: 49.99,
       quantity: 2,
     ),
-    OrderProductModel(
+    OrderProductEntity(
       name: 'Product B',
       code: 'B456',
       imageUrl: 'https://via.placeholder.com/150',
       price: 29.99,
       quantity: 1,
     ),
-    OrderProductModel(
+    OrderProductEntity(
       name: 'Product C',
       code: 'C789',
       imageUrl: 'https://via.placeholder.com/150',
@@ -45,7 +49,7 @@ OrderModel getDummyOrder() {
   );
 
   // Create and return the OrderModel
-  return OrderModel(
+  return OrderEntity(
     totalPrice: totalPrice,
     uId: 'user123',
     shippingAddressModel: shippingAddress,
