@@ -22,21 +22,24 @@ OrderEntity getDummyOrder() {
     OrderProductEntity(
       name: 'Product A',
       code: 'A123',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl:
+          'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg',
       price: 49.99,
       quantity: 2,
     ),
     OrderProductEntity(
       name: 'Product B',
       code: 'B456',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl:
+          'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg',
       price: 29.99,
       quantity: 1,
     ),
     OrderProductEntity(
       name: 'Product C',
       code: 'C789',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl:
+          'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg',
       price: 19.99,
       quantity: 3,
     ),
