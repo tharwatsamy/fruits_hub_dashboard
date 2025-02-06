@@ -30,8 +30,14 @@ class OrdersRepoImpl implements OrdersRepo {
 
   @override
   Future<Either<Failure, void>> updateOrder(
-      {required OrderStatusEnum status, required String orderID}) {
-    // TODO: implement updateOrder
-    throw UnimplementedError();
+      {required OrderStatusEnum status, required String orderID}) async {
+    try {
+      await _dataService.updateData(data: {
+        'status': status.name,
+      }, path: BackendEndpoint.updateOrder, documentId: orderID);
+      return right(null);
+    } catch (e) {
+      return Left(ServerFailure('Failed to update order'));
+    }
   }
 }
