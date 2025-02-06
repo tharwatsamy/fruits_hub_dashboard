@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_dashboard/features/orders/domain/entities/data/models/order_entity.dart';
-import 'package:fruit_hub_dashboard/features/orders/presentation/views/widgets/action_buttons.dart';
+import 'package:fruit_hub_dashboard/features/orders/presentation/views/widgets/order_action_buttons.dart';
 
 import '../../../../../core/enums/order_enum.dart';
 import '../../../data/models/order_model.dart';
@@ -117,7 +117,7 @@ class OrderItemWidget extends StatelessWidget {
             ),
 
             const SizedBox(height: 16),
-            ActionButtons(orderModel: orderModel),
+            OrderActionButtons(orderModel: orderModel),
           ],
         ),
       ),

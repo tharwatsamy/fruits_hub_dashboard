@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub_dashboard/features/orders/presentation/manger/update_order/update_order_cubit.dart';
 
 import '../../../../../core/enums/order_enum.dart';
 import '../../../domain/entities/data/models/order_entity.dart';
 
-class ActionButtons extends StatelessWidget {
-  const ActionButtons({
+class OrderActionButtons extends StatelessWidget {
+  const OrderActionButtons({
     super.key,
     required this.orderModel,
   });
@@ -20,7 +22,11 @@ class ActionButtons extends StatelessWidget {
         Visibility(
           visible: orderModel.status == OrderStatusEnum.pending,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context
+                  .read<UpdateOrderCubit>()
+                  .updateOrder(status: orderModel.status, orderID: orderID);
+            },
             child: const Text('Accept'),
           ),
         ),
