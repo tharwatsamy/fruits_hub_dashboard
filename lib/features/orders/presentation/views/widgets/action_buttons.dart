@@ -18,21 +18,21 @@ class ActionButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Visibility(
-          visible: orderModel.status == OrderEnum.pending,
+          visible: orderModel.status == OrderStatusEnum.pending,
           child: ElevatedButton(
             onPressed: () {},
             child: const Text('Accept'),
           ),
         ),
         Visibility(
-          visible: orderModel.status == OrderEnum.pending,
+          visible: orderModel.status == OrderStatusEnum.pending,
           child: ElevatedButton(
             onPressed: () {},
             child: const Text('Reject'),
           ),
         ),
         Visibility(
-          visible: orderModel.status == OrderEnum.accepted,
+          visible: orderModel.status == OrderStatusEnum.accepted,
           child: ElevatedButton(
             onPressed: () {},
             child: const Text('Delivered'),

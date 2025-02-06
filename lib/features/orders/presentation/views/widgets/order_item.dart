@@ -36,11 +36,11 @@ class OrderItemWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: orderModel.status == OrderEnum.pending
+                    color: orderModel.status == OrderStatusEnum.pending
                         ? Colors.orange
-                        : orderModel.status == OrderEnum.accepted
+                        : orderModel.status == OrderStatusEnum.accepted
                             ? Colors.green
-                            : orderModel.status == OrderEnum.delivered
+                            : orderModel.status == OrderStatusEnum.delivered
                                 ? Colors.blue
                                 : Colors.red,
                     borderRadius: BorderRadius.circular(8),
