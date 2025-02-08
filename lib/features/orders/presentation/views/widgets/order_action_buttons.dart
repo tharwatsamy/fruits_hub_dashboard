@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,10 +10,10 @@ import '../../../domain/entities/data/models/order_entity.dart';
 class OrderActionButtons extends StatelessWidget {
   const OrderActionButtons({
     super.key,
-    required this.orderModel,
+    required this.orderEntity,
   });
 
-  final OrderEntity orderModel;
+  final OrderEntity orderEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -20,27 +21,31 @@ class OrderActionButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Visibility(
-          visible: orderModel.status == OrderStatusEnum.pending,
+          visible: orderEntity.status == OrderStatusEnum.pending,
           child: ElevatedButton(
             onPressed: () {
-              context
-                  .read<UpdateOrderCubit>()
-                  .updateOrder(status: orderModel.status, orderID: orderID);
+              context.read<UpdateOrderCubit>().updateOrder(
+                  status: OrderStatusEnum.accepted,
+                  orderID: orderEntity.orderID);
             },
             child: const Text('Accept'),
           ),
         ),
         Visibility(
-          visible: orderModel.status == OrderStatusEnum.pending,
+          visible: orderEntity.status == OrderStatusEnum.pending,
           child: ElevatedButton(
             onPressed: () {},
             child: const Text('Reject'),
           ),
         ),
         Visibility(
-          visible: orderModel.status == OrderStatusEnum.accepted,
+          visible: orderEntity.status == OrderStatusEnum.accepted,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<UpdateOrderCubit>().updateOrder(
+                  status: OrderStatusEnum.delivered,
+                  orderID: orderEntity.orderID);
+            },
             child: const Text('Delivered'),
           ),
         ),

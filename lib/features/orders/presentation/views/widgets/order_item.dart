@@ -117,7 +117,7 @@ class OrderItemWidget extends StatelessWidget {
             ),
 
             const SizedBox(height: 16),
-            OrderActionButtons(orderModel: orderModel),
+            OrderActionButtons(orderEntity: orderModel),
           ],
         ),
       ),
