@@ -54,6 +54,7 @@ OrderEntity getDummyOrder() {
 
   // Create and return the OrderModel
   return OrderEntity(
+    orderID: '12345',
     totalPrice: totalPrice,
     status: OrderStatusEnum.pending,
     uId: 'user123',
